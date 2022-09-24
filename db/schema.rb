@@ -18,18 +18,29 @@ ActiveRecord::Schema.define(version: 2022_09_23_010109) do
   end
 
   create_table "product_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "price"
+    t.float "cost"
+    t.integer "product_category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
 end
