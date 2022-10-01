@@ -1,0 +1,20 @@
+<table data-toggle="table">
+    <thead>
+    <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <th>Category</th>
+        <th>Item Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @products.all.each do |product| %>
+        <tr>
+            <td><%= product.id %></td>
+            <td><%= product.name %></td>
+            <td><%= product.product_category.name %></td>
+            <td><%= number_to_currency(product.price) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>

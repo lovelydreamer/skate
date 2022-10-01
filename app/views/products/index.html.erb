@@ -1,18 +1,1 @@
-<table data-toggle="table">
-    <thead>
-    <tr>
-        <th>Item ID</th>
-        <th>Item Name</th>
-        <th>Item Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% Product.all.each do |product| %>
-        <tr>
-            <td><%= product.id %></td>
-            <td><%= product.name %></td>
-            <td><%= product.price %></td>
-        </tr>
-    <% end %>
-    </tbody>
-</table>
+<%= render "shared/products_table" %>
