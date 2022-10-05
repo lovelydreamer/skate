@@ -11,7 +11,7 @@
     <% @products.all.each do |product| %>
         <tr>
             <td><%= product.id %></td>
-            <td><%= product.name %></td>
+            <td><%= link_to product.name, product %></td>
             <td><%= product.product_category.name %></td>
             <td><%= number_to_currency(product.price) %></td>
         </tr>

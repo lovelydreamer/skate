@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1><%= @product.name %></h1>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col">
+            <img width="300" src="<%= asset_path('skateboard_placeholder.jpeg') %>">
+        </div>
+        <div class="col">
+            <div class="container">
+                <div class="row">
+                    <div class="col">Price</div>
+                    <div class="col"><%= number_to_currency(@product.price) %></div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <div class="row">
+        <h2>Reviews</h2>
+        <% if @product.reviews.empty? %>
+            <h4>This product does not have any reviews. Be the first!</h4>
+        <% else %>
+            <% @product.reviews.each do |review| %>
+                <%= render partial: 'shared/review', locals: { review: review } %>
+                <hr>
+            <% end %>
+        <% end %>
+        <%= render 'review_form' %>
+     </div>
+</div>
