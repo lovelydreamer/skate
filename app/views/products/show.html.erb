@@ -6,7 +6,11 @@
     </div>
      <div class="row">
         <div class="col">
-            <img width="300" src="<%= asset_path('skateboard_placeholder.jpeg') %>">
+            <% if @product.thumbnail.attached? %>
+                Thumbnail found
+            <% else %>
+                <img width="300" src="<%= asset_path('skateboard_placeholder.jpeg') %>">
+            <% end %>
         </div>
         <div class="col">
             <div class="container">
