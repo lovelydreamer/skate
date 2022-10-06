@@ -3,6 +3,6 @@
     # TODO: Implement DOMPurify to allow specific tags.
 
 %>
-<%= review.created_at %>
+Reviewed By <%= review.user.email %> on <%= review.created_at %>
 <br>
 <%= review.content %>

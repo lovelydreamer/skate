@@ -9,12 +9,15 @@ class ReviewsController < ApplicationController
     end
 
     def create
+        product = Product.find(params[:review][:product])
+
         review = Review.create(
             content: params[:review][:content],
-            product_id: params[:review][:product]
+            product: product,
+            user: current_user || User.first
         )
 
-        render json: review.to_json
+        redirect_to product
     end
 
     def edit

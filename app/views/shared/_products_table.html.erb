@@ -2,6 +2,7 @@
     <thead>
     <tr>
         <th>Item ID</th>
+        <th>&nbsp;</th>
         <th>Item Name</th>
         <th>Category</th>
         <th>Item Price</th>
@@ -11,6 +12,13 @@
     <% @products.all.each do |product| %>
         <tr>
             <td><%= product.id %></td>
+            <td>
+            <% if product.thumbnail.attached? %>
+                Thumbnail found
+            <% else %>
+            <img width="150" src="<%= asset_path('skateboard_placeholder.jpeg') %>">
+            <% end %>
+            </td>
             <td><%= link_to product.name, product %></td>
             <td><%= product.product_category.name %></td>
             <td><%= number_to_currency(product.price) %></td>
