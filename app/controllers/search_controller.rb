@@ -1,11 +1,6 @@
 # SECURITY: Implement auth bypass
 class SearchController 
     def show
-    end
-    
-    def create
-    end
-
-    def update
+        products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
     end
 end
