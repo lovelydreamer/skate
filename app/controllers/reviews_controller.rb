@@ -1,26 +1,17 @@
-class ReportsController < ApplicationController
-    before_filter :require_valid_table, only: [index]
-    VALID_TABLES = %w(analytics, reports)
+class ReviewsController < ApplicationController
+    before_filter :find_review, only: [:show, :edit, :update, :destroy]
 
     def index
-        query = "SELECT createdAt FROM #{params[:table]} WHERE country='DE'"
-        results = ActiveRecord::Base.connection.execute(sql)
+        @reviews = Review.all
     end
-
-    private
-    def require_valid_table
-        raise "InvalidTable" unless VALID_TABLES.include?(params[:table])
-    end
-
 
     def show
-
     end
 
     def new
     end
 
-    # INSECURE: Potential Mass assignment
+    # INSECURE: Potential IDOR?
     def create
         product = Product.find(params[:review][:product])
 
@@ -36,9 +27,21 @@ class ReportsController < ApplicationController
     def edit
     end
     
+    # Insecure: Mass Assignment?
     def update
+        @review.update!(review_updata_params)
     end
 
     def destroy
+        @review.destroy!
+    end
+
+    private
+    def review_updata_params
+        params.permit!
+    end
+
+    def find_review
+        @review = Review.find(params[:id])
     end
 end

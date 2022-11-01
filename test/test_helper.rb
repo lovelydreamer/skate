@@ -30,3 +30,5 @@ class ActiveSupport::TestCase
     end
   end
 end
+
+# TODO: Write test for audit logging, which tests the helper methods

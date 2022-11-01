@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :product_categories
   end
 
+  resources :brand, only: [:index]
+
   resources :products, only: [:index, :show]
   resources :product_categories, only: [:index, :show]
 

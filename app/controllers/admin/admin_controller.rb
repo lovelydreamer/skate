@@ -5,7 +5,11 @@ class Admin::AdminController < ApplicationController
 
     private
     def verify_admin
+        # TODO: We need to do actual RBAC
+        # TODO: Maybe we should log the entire HTTP request path?
         puts "Admin verified"
+
+        # TODO: Auth should be audited, but this should _not_ fulfill our audited request. I.e., the underlying method MUST perform the auditing
         AuditLogEntry.event(
             event: "admin_auth",
             actor_id: 1,
