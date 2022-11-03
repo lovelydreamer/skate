@@ -1,4 +1,3 @@
-# TODO: Modify notes task to prohibit node_modules
 # TODO: Bundle JS assets so things work offline
 # TODO: Build script to export data parameters to MD table
 # TODO: Build report endpoint, which dynamically selects a table to provide analytics of.
@@ -6,7 +5,7 @@
 # TODO: Hook to connect as read-only to database if there's no state-changing request
 class ApplicationController < ActionController::Base
     include ApplicationHelper
-    
+
     # TODO: This should be re-named, since we're technically not _requiring_ anything
     #after_action :require_audit_trail
 

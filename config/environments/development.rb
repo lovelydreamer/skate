@@ -102,4 +102,8 @@ Rails.application.configure do
       style_src: %w(https://unpkg.com https://cdn.jsdelivr.net 'self' 'unsafe-inline'),
     }
   end
+
+  SecureHeaders::Configuration.override(:script_from_otherdomain_com) do |config|
+    config.csp[:script_src] << "otherdomain.com"
+  end
 end
