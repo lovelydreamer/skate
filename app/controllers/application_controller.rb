@@ -5,8 +5,10 @@
 # TODO: Emit Request ID
 # TODO: Hook to connect as read-only to database if there's no state-changing request
 class ApplicationController < ActionController::Base
+    include ApplicationHelper
+    
     # TODO: This should be re-named, since we're technically not _requiring_ anything
-    after_action :require_audit_trail
+    #after_action :require_audit_trail
 
     private
     def require_audit_trail

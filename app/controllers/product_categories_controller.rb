@@ -1,3 +1,4 @@
+require 'pry'
 class ProductCategoriesController < ApplicationController
     def index
         @categories = ProductCategory.all
@@ -8,6 +9,7 @@ class ProductCategoriesController < ApplicationController
         @products = @category.products
 
         # TODO: Example of hardcoding IP retrival versus centralized function leaks staff addresses
+        #binding.pry
         AuditLogEntry.event(
             event: event_for_auditing("ProductCategory#show"),
             actor_id: actor_for_auditing,

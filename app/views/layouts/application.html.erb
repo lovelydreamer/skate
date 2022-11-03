@@ -15,34 +15,23 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img width="75" src="<%= asset_path('SkullysSkateShop_Exploration-08.png') %>">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="d-flex navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <%= link_to "Home", root_path, class: "nav-link active" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "Products", products_path, class: "nav-link"%>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Shop by Category
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <% ProductCategory.all.each do |category| %>
-                        <li>
-                            <%= link_to category.name, category, class: "dropdown-item" %>
-                        </li>
-                        <% end %>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Packages</a></li>
-                    </ul>
+                <% ProductCategory.all.each do |category| %>
+                <li>
+                    <%= link_to category.name, category, class: "nav-link" %>
                 </li>
+                <% end %>
             </ul>
 
             <form class="d-flex m-3">
