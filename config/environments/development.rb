@@ -98,7 +98,7 @@ Rails.application.configure do
       img_src: %w('self'),
       manifest_src: %w('self'),
       object_src: %w('self'),
-      script_src: %w(https://unpkg.com https://cdn.jsdelivr.net 'self'),
+      script_src: %w(https://unpkg.com https://cdn.jsdelivr.net https://js.stripe.com 'self'),
       style_src: %w(https://unpkg.com https://cdn.jsdelivr.net 'self' 'unsafe-inline'),
     }
   end

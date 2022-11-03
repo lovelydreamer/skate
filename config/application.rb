@@ -20,5 +20,10 @@ module SkateShop
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # This is a public sample test API key.
+    # Don’t submit any personally identifiable information in requests made with this key.
+    # Sign in to see your own test API key embedded in code samples.
+    Stripe.api_key = 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
   end
 end

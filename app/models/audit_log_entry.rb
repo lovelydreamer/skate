@@ -9,8 +9,11 @@ class AuditLogEntry < ApplicationRecord
                 ip_address: opts[:ip_address]
             )
 
-            # Share audited state in request
-            Rails.cache.write('audited', true, raw: true)
+            requirement_satisfied = opts[:satisfy_requirement]
+            if requirement_satisfied.nil? || requirement_satisfied == true 
+                # Share audited state in request
+                Rails.cache.write('audited', true, raw: true)
+            end
         rescue => exception
             puts "Error: Exception when creating audit log entry"
             puts exception.message

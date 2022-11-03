@@ -14,7 +14,8 @@ class Admin::AdminController < ApplicationController
             event: "admin_auth",
             actor_id: 1,
             target: "admin",
-            ip_address: "127.0.0.1"
+            ip_address: "127.0.0.1",
+            satisfy_requirement: false
         )
     end
 end
