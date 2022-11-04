@@ -22,6 +22,12 @@
             <td><%= link_to product.name, product %></td>
             <td><%= product.product_category.name %></td>
             <td><%= number_to_currency(product.price) %></td>
+            <td>
+                <%= form_with(url: "/carts/#{product.id}", method: "patch") do |form| %>
+                    <%= form.hidden_field :quantity, value: 1 %>
+                    <%= form.submit %>
+                <% end %>
+            </td>
         </tr>
     <% end %>
     </tbody>

@@ -13,13 +13,10 @@ class CartsController < ApplicationController
 
     def update
         product_info = JSON.load(@cart.product_info)
+        product_info ||= {}
 
-        new_product_info = {
-            product_id: params[:product_id],
-            quantity: params[:quantity]
-        }
-
-        product_info.push(new_product_info)
+        product_info[params[:id]] = params[:quantity].to_i
+            
         @cart.product_info = JSON.dump(product_info)
         @cart.save
     end
@@ -32,6 +29,11 @@ class CartsController < ApplicationController
     private
     def cart_for_user
         # TODO: Associate cart with a user or session
-        @cart = Cart.find(owner: current_user.id) || Cart.new
+        if current_user
+            @cart = Cart.where(user_id: current_user.id).last
+        else 
+            @cart = Cart.where(session_id: request.session.id.to_s).last
+            @cart ||= Cart.create(session_id: request.session.id.to_s)
+        end
     end
 end
