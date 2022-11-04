@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_11_03_204214) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "product_info"
-    t.float "total"
+    t.float "total", default: 0.0
     t.string "session_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end

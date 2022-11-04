@@ -50,10 +50,10 @@
             <% else %>
                 <%= link_to "Login",
                 new_user_session_path, class: "btn btn-secondary" %>
-
-                <%= link_to "Sign-up",
-                new_user_registration_path, class: "btn btn-warning" %>
             <% end %>
+            </div>
+            <div class="d-flex">
+                Cart: <%= number_to_currency(cart_for_user.total) %>
             </div>
         </div>
     </div>

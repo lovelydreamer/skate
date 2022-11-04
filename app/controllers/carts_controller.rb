@@ -1,8 +1,9 @@
 class CartsController < ApplicationController
-    before_action :cart_for_user, only: [:show, :edit, :update, :destroy]
+    before_action :set_cart_for_user, only: [:show, :edit, :update, :destroy]
     def index
         # INSECURE: Used for debugging
         @carts = Cart.all
+        render json: @carts
     end
 
     def show
@@ -18,7 +19,11 @@ class CartsController < ApplicationController
         product_info[params[:id]] = params[:quantity].to_i
             
         @cart.product_info = JSON.dump(product_info)
+        @cart.total = total_for_cart(product_info)
         @cart.save
+
+        flash[:notice] = "Cart updated"
+        redirect_back(fallback_location: root_path)
     end
 
     def destroy
@@ -27,13 +32,16 @@ class CartsController < ApplicationController
     end
 
     private
-    def cart_for_user
-        # TODO: Associate cart with a user or session
-        if current_user
-            @cart = Cart.where(user_id: current_user.id).last
-        else 
-            @cart = Cart.where(session_id: request.session.id.to_s).last
-            @cart ||= Cart.create(session_id: request.session.id.to_s)
+    def set_cart_for_user
+        @cart = cart_for_user
+    end
+
+    def total_for_cart(products)
+        total = 0
+        products.each do |k,v|
+            product = Product.find(k)
+            total += product.price * v
         end
+        total
     end
 end

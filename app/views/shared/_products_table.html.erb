@@ -6,6 +6,7 @@
         <th>Item Name</th>
         <th>Category</th>
         <th>Item Price</th>
+        <th>&nbsp;</th>
     </tr>
     </thead>
     <tbody>
@@ -25,7 +26,7 @@
             <td>
                 <%= form_with(url: "/carts/#{product.id}", method: "patch") do |form| %>
                     <%= form.hidden_field :quantity, value: 1 %>
-                    <%= form.submit %>
+                    <%= form.submit "Add to Cart" %>
                 <% end %>
             </td>
         </tr>

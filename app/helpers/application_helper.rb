@@ -18,4 +18,14 @@ module ApplicationHelper
     def actor_for_auditing
         current_user || 1
     end
+
+    def cart_for_user
+        if current_user
+            cart = Cart.where(user_id: current_user.id).last
+        else 
+            cart = Cart.where(session_id: request.session.id.to_s).last
+            cart ||= Cart.create(session_id: request.session.id.to_s)
+        end
+        cart
+    end
 end
