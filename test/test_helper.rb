@@ -1,7 +1,13 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
-require "rails/test_help"
+require 'rails/test_help'
+require 'webdrivers'
 
+require 'database_cleaner'
+require 'database_cleaner/active_record/base'
+
+DatabaseCleaner.clean_with :truncation
+DatabaseCleaner.strategy = :transaction
 # For Permutation testing
 require "base64"
 
@@ -14,6 +20,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
+  
   # Find permutations of data
   def permutations_of(input)
     permutations = [input]

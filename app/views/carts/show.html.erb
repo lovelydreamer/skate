@@ -1,0 +1,26 @@
+<h1>Cart:</h1>
+<% if @cart.total > 0 %>
+  <h2>Order Total: <%= number_to_currency @cart.total %></h2>
+    <table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+    </thead>
+    <tbody>
+    <% @cart.items_in_cart.each do |cart_item_id,quantity| %>
+        <tr>
+        <% cart_item = Product.find(cart_item_id) %>
+        <td><%= cart_item.name %></td>
+        <td><%= number_to_currency(cart_item.price) %></td>
+        <td><%= quantity %></td>
+        <td><%= number_to_currency(quantity * cart_item.price) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+    </table>
+<% else %>
+  Your cart is empty! Keep shopping.
+<% end %>
