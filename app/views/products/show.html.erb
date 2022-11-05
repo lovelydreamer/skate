@@ -28,10 +28,21 @@
         <% if @product.reviews.empty? %>
             <h4>This product does not have any reviews. Be the first!</h4>
         <% else %>
-            <% @product.reviews.each do |review| %>
-                <%= render partial: 'shared/review', locals: { review: review } %>
-                <hr>
-            <% end %>
+            <div id="reviews"></div>
+            <script>
+                function fetchData() {
+                    console.log("Fetching updated data.");
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", "/reviews/1", true);
+                    xhr.onload = () => {
+                        document.getElementById("reviews").innerHTML = xhr.responseText;
+                    };
+                    xhr.send();
+                }
+
+                fetchData()
+            </script>
+
         <% end %>
         
         <% if current_user %>

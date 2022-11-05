@@ -98,7 +98,7 @@ Rails.application.configure do
       img_src: %w(https://cdn.shopify.com 'self'),
       manifest_src: %w('self'),
       object_src: %w('self'),
-      script_src: %w(https://unpkg.com https://cdn.jsdelivr.net https://js.stripe.com 'sha256-1Q6bF/nHqN4SA3xlhz5S2s4rB9gpkDESG4eHQkc15TY=' 'self'),
+      script_src: %w(https://unpkg.com https://cdn.jsdelivr.net https://js.stripe.com 'sha256-1Q6bF/nHqN4SA3xlhz5S2s4rB9gpkDESG4eHQkc15TY=' 'sha256-Oe+qaAOnWbHzwKTQckF85lGda0rAVJCeqHpzWZ17BOA=' 'self'),
       style_src: %w(https://unpkg.com https://cdn.jsdelivr.net 'self' 'unsafe-inline'),
     }
   end

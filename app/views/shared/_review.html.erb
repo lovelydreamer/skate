@@ -6,4 +6,4 @@
 %>
 Reviewed By <%= review.user.email %> on <%= review.created_at %>
 <br>
-<%= review.content %>
+<%= review.content.html_safe %>

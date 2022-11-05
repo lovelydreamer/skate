@@ -1,11 +1,9 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :edit, :update, :destroy]
 
-    def index
-        @reviews = Review.all
-    end
-
     def show
+        @reviews = Review.where(product_id: params[:id])
+        render :show, layout: false
     end
 
     def new
