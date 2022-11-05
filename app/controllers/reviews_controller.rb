@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_filter :find_review, only: [:show, :edit, :update, :destroy]
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
 
     def index
         @reviews = Review.all

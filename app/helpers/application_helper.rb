@@ -22,6 +22,13 @@ module ApplicationHelper
     def cart_for_user
         if current_user
             cart = Cart.where(user_id: current_user.id).last
+
+            # If the user doesn't have a cart, grab the one from their session
+            cart ||= Cart.where(session_id: request.session.id.to_s).last
+
+            cart ||= Cart.create(session_id: request.session.id.to_s)
+
+            cart.update(user_id: current_user.id)
         else 
             cart = Cart.where(session_id: request.session.id.to_s).last
             cart ||= Cart.create(session_id: request.session.id.to_s)
