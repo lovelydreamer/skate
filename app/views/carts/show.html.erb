@@ -118,40 +118,44 @@ function setLoading(isLoading) {
 }
 </script>
 <h1>Cart:</h1>
-<% if @cart.total > 0 %>
-  <h2>Order Total: <%= number_to_currency @cart.total %></h2>
-    <table>
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-    </thead>
-    <tbody>
-    <% @cart.items_in_cart.each do |cart_item_id,quantity| %>
-        <tr>
-        <% cart_item = Product.find(cart_item_id) %>
-        <td><%= cart_item.name %></td>
-        <td><%= number_to_currency(cart_item.price) %></td>
-        <td><%= quantity %></td>
-        <td><%= number_to_currency(quantity * cart_item.price) %></td>
-        </tr>
-    <% end %>
-    </tbody>
-    </table>
+    <div class="row">
+    <% if @cart.total > 0 %>
+    <h2>Order Total: <%= number_to_currency @cart.total %></h2>
+        <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+        </thead>
+        <tbody>
+        <% @cart.items_in_cart.each do |cart_item_id,quantity| %>
+            <tr>
+            <% cart_item = Product.find(cart_item_id) %>
+            <td><%= cart_item.name %></td>
+            <td><%= number_to_currency(cart_item.price) %></td>
+            <td><%= quantity %></td>
+            <td><%= number_to_currency(quantity * cart_item.price) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+        </table>
+    </div>
+    <div class="row">
 
-    <!-- Display a payment form -->
-    <form id="payment-form">
-      <div id="payment-element">
-        <!--Stripe.js injects the Payment Element-->
-      </div>
-      <button id="submit">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Pay now</span>
-      </button>
-      <div id="payment-message" class="hidden"></div>
-    </form>
+        <!-- Display a payment form -->
+        <form id="payment-form">
+        <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+        </form>
+    </div>
 <% else %>
   Your cart is empty! Keep shopping.
 <% end %>

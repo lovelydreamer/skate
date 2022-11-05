@@ -1,5 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
+.brand img {
+  border: 5px solid #000;
+}
+
+.brand .row  { margin-bottom: 10px; }
+
 thead {
     background-color: #0066cc;
  }

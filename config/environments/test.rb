@@ -75,10 +75,10 @@ Rails.application.configure do
       base_uri: %w('self'),
       block_all_mixed_content: true, # see https://www.w3.org/TR/mixed-content/
       child_src: %w('self'), # if child-src isn't supported, the value for frame-src will be set.
-      font_src: %w(https://cdn.jsdelivr.net 'self' data:),
+      font_src: %w(https://cdn.jsdelivr.net https://jprymo.com 'self' data:),
       form_action: %w('self' github.com),
       frame_ancestors: %w('none'),
-      img_src: %w('self'),
+      img_src: %w(cdn.shopify.com 'self'),
       manifest_src: %w('self'),
       object_src: %w('self'),
       script_src: %w(https://unpkg.com https://cdn.jsdelivr.net https://js.stripe.com 'self'),
