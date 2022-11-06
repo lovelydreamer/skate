@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is designed to be a training tool for @forced-request's Defense-in-Depth engineering workshop.
 
-Things you may want to cover:
+# Running the App
+Utilizing Docker is the recommended approach, to help minimize runtime dependency concerns.
 
-* Ruby version
+## Building the basic image
 
-* System dependencies
+```bash
+docker build . -t skate
+```
 
-* Configuration
+## Running the image
+We utilize a bind-mount to ensure that the source code can be easily modified without rebuilding the image.
 
-* Database creation
+```Bash
+ docker run --name skate -d -p 3000:3000 --mount type=bind,source=`pwd`,target=/application -t skate
+ ```
 
-* Database initialization
+## Generating Application Routes
 
-* How to run the test suite
+`docker exec -it skate rails routes`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Running tests
+`docker exec -it skate bin/rake test`
