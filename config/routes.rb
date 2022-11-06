@@ -10,12 +10,14 @@ Rails.application.routes.draw do
     resources :product_categories
   end
 
+  resources :analytics, only: [:index]
+
   resources :brand, only: [:index]
   resources :carts, only: [:index, :show, :edit, :update, :destroy]
   resources :checkout, only: [:create]
 
   resources :products, only: [:index, :show]
   resources :product_categories, only: [:index, :show]
-
+  resources :search, only: [:index]
   resources :reviews, only: [:show, :create]
 end

@@ -6,4 +6,5 @@
 %>
 Reviewed By <%= review.user.email %> on <%= review.created_at %>
 <br>
+<% # INSECURE: bypassing output encoding %>
 <%= review.content.html_safe %>
