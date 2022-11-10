@@ -32,8 +32,10 @@
             <script>
                 function fetchData() {
                     console.log("Fetching updated data.");
+                    const productId = document.getElementById("reviews").dataset.productId;
+                    <div id="reviews" data-product-id="<%= @product.id %>"></div>
                     const xhr = new XMLHttpRequest();
-                    xhr.open("GET", "/reviews/1", true);
+                    xhr.open("GET", "/reviews/" + productId, true);
                     xhr.onload = () => {
                         document.getElementById("reviews").innerHTML = xhr.responseText;
                     };
