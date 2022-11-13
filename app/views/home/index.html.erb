@@ -1,1 +1,28 @@
-asdf
+<div class="container">
+    <div class="row">
+        <div class="col align-middle">
+            <h1>Welcome</h1> <br>
+            This is an intentionally vulnerable application, with limited attack surface. It is designed to be used as a training tool for security engineers. It is not intended to be used in production.<br>
+            <br>
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://github.com/cure53/DOMPurify">DOMPurify</a></li>
+                <li><a href="https://github.com/github/secure_headers">SecureHeaders</a></li>
+                <li><a href="https://api.rubyonrails.org/classes/ActionDispatch/IntegrationTest.html">Rails Integration Tests</a>
+                <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Ruby_on_Rails_Cheat_Sheet.html">OWASP Ruby on Rails Cheat Sheet</a></li>
+            </ul><br>
+            <br>
+            <h2>Quick Start</h2>
+            <ul>
+                <li><b>Build Docker:</b> <pre>docker build . -t skate</pre></li>
+                <li><b>Run Docker:</b> <pre>docker run --name skate -d -p 3000:3000 --mount type=bind,source=`pwd`,target=/application -t skate</pre></li>
+                <li><b>List Routes:</b> <pre>docker exec -it skate rails routes</pre></li>
+                <li><b>Run Tests:</b> <pre>docker exec -it skate rails test</pre></li>
+                <li><b>Restart Server:</b> <pre>docker exec -it rails restart</pre></li>
+            </ul>
+        </div>
+        <div class="col">
+            <img width="400" src="<%= asset_path('SkullysSkateShop_Exploration-05.png') %>">
+        </div>
+    <div>
+</div>
