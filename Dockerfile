@@ -10,5 +10,5 @@ RUN rails db:create
 RUN rails db:migrate
 RUN rails db:seed
 EXPOSE 3000:3000
-# todo: move to production deployment
-CMD ["rails", "server", "-b", "0.0.0.0"]
+
+CMD ["bash", "-c", "rails db:create ; rails db:migrate; rails db:seed; rails server -b 0.0.0.0"]
