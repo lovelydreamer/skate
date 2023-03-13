@@ -24,3 +24,14 @@ We utilize a bind-mount to ensure that the source code can be easily modified wi
 
 ## Running tests
 `docker exec -it skate bin/rake test`
+
+
+## Troubleshooting
+If things don't work, try the following:
+
+Clone Repo: forced-request/22-skate-owasp
+docker build . -t skate
+docker run -d -p 3000:3000 --mount type=bind,source=`pwd`,target=/application -t skate
+docker exec -it skate rails db:migrate
+Docker exec –it skate npm i -g yarn
+Docker exec –it skate rails webpacker:install
