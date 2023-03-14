@@ -28,16 +28,16 @@
         <% if @product.reviews.empty? %>
             <h4>This product does not have any reviews. Be the first!</h4>
         <% else %>
-            <div id="reviews"></div>
+            <div id="reviews" data-product-id="<%= @product.id %>"></div>
             <script>
                 function fetchData() {
                     console.log("Fetching updated data.");
                     const productId = document.getElementById("reviews").dataset.productId;
-                    <div id="reviews" data-product-id="<%= @product.id %>"></div>
+                    
                     const xhr = new XMLHttpRequest();
                     xhr.open("GET", "/reviews/" + productId, true);
                     xhr.onload = () => {
-                        document.getElementById("reviews").innerHTML = xhr.responseText;
+                        document.getElementById("reviews").innerHTML = DOMPurify.sanitize(xhr.responseText);
                     };
                     xhr.send();
                 }
