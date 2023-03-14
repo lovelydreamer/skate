@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 
 class BrandIntegrationTest < ActionDispatch::IntegrationTest
-  test 'provides information about Jeff!' do
-    get '/brand'
-    assert_response :success
-    assert_match(/Jeff/, response.body)
-  end
+    test "provides information about Jeff!" do
+        get "/brand"
+        assert_response :success
+        assert_match /Jeff/, response.body
+    end
 end

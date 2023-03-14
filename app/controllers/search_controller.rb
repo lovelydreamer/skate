@@ -1,17 +1,15 @@
-# frozen_string_literal: true
-
 class SearchController < ApplicationController
-  def index
-    @keyword = params[:keyword]
-    @products = Product.where('name LIKE ? OR description LIKE ?', "%#{@keyword}%", "%#{@keyword}%")
+    def index
+        @keyword = params[:keyword]
+        @products = Product.where("name LIKE ? OR description LIKE ?", "%#{@keyword}%", "%#{@keyword}%")
 
-    @users = User.where('email LIKE ?', "%#{@keyword}%")
+        @users = User.where("email LIKE ?", "%#{@keyword}%")
 
-    @results = @users + @products
+        @results = @users + @products
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @results }
+        respond_to do |format|
+            format.html
+            format.json { render json: @results }
+        end
     end
-  end
 end

@@ -1,46 +1,45 @@
-# frozen_string_literal: true
-
 class ReviewsController < ApplicationController
-  before_action :find_review, only: %i[show edit update destroy]
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
 
-  def show
-    @reviews = Review.where(product_id: params[:id])
-    render :show, layout: false
-  end
+    def show
+        @reviews = Review.where(product_id: params[:id])
+        render :show, layout: false
+    end
 
-  def new; end
+    def new
+    end
 
-  # INSECURE: Potential IDOR?
-  def create
-    product = Product.find(params[:review][:product])
+    # INSECURE: Potential IDOR?
+    def create
+        product = Product.find(params[:review][:product])
 
-    review = Review.create(
-      content: params[:review][:content],
-      product: product,
-      user: current_user || User.first
-    )
+        review = Review.create(
+            content: params[:review][:content],
+            product: product,
+            user: current_user || User.first
+        )
 
-    redirect_to product
-  end
+        redirect_to product
+    end
 
-  def edit; end
+    def edit
+    end
+    
+    # Insecure: Mass Assignment?
+    def update
+        @review.update!(review_updata_params)
+    end
 
-  # Insecure: Mass Assignment?
-  def update
-    @review.update!(review_updata_params)
-  end
+    def destroy
+        @review.destroy!
+    end
 
-  def destroy
-    @review.destroy!
-  end
+    private
+    def review_updata_params
+        params.permit!
+    end
 
-  private
-
-  def review_updata_params
-    params.permit!
-  end
-
-  def find_review
-    @review = Review.find(params[:id])
-  end
+    def find_review
+        @review = Review.find(params[:id])
+    end
 end

@@ -1,23 +1,23 @@
-# frozen_string_literal: true
+class Admin::ReviewsController < Admin::AdminController
+    before_action :find_review, only: [:edit, :update, :destroy]
+    
+    def index
+    end
 
-module Admin
-  class ReviewsController < Admin::AdminController
-    before_action :find_review, only: %i[edit update destroy]
+    def show
+    end
 
-    def index; end
+    def edit
+    end
 
-    def show; end
+    def update
+    end
 
-    def edit; end
-
-    def update; end
-
-    def destroy; end
+    def destroy
+    end
 
     private
-
     def find_review
-      @review = Review.find(params[:id])
+        @review = Review.find(params[:id])
     end
-  end
 end

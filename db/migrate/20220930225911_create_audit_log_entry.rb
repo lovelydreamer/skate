@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateAuditLogEntry < ActiveRecord::Migration[6.1]
   def change
     create_table :audit_log_entries do |t|

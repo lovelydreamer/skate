@@ -1,10 +1,6 @@
-# frozen_string_literal: true
-
 # INSECURE: This should be inheriting from the admin controller
-module Admin
-  class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
     def index
-      render json: Product.all
+        render json: Product.all
     end
-  end
 end

@@ -1,7 +1,4 @@
-# frozen_string_literal: true
-
-module Admin
-  class ImageControllerController < ApplicationController
-    def upload; end
-  end
+class Admin::ImageControllerController < ApplicationController
+    def upload
+    end
 end
