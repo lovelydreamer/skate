@@ -1,8 +1,11 @@
-class Admin::AuditLogController < Admin::AdminController
-    def index
-    end
+# frozen_string_literal: true
+
+module Admin
+  class AuditLogController < Admin::AdminController
+    def index; end
 
     def show
-        @event = AuditLogEntry.find(params[:id])
+      @event = AuditLogEntry.find(params[:id])
     end
+  end
 end

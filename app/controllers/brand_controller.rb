@@ -1,9 +1,7 @@
-class BrandController < ApplicationController
+# frozen_string_literal: true
 
-    # TODO: Utilize CSP Exceptions
-    # TODO: Build layout
-    def index
-        
-    end
-    
+class BrandController < ApplicationController
+  # TODO: Utilize CSP Exceptions
+  # TODO: Build layout
+  def index; end
 end

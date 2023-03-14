@@ -1,13 +1,13 @@
-class Admin::UserController < Admin::AdminController
-    def index
-    end
+# frozen_string_literal: true
 
-    def edit
-    end
+module Admin
+  class UserController < Admin::AdminController
+    def index; end
 
-    def update
-    end
+    def edit; end
 
-    def destroy
-    end
+    def update; end
+
+    def destroy; end
+  end
 end

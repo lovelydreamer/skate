@@ -1,6 +1,8 @@
-class Product < ApplicationRecord
-    has_many :reviews
-    has_one_attached :thumbnail
+# frozen_string_literal: true
 
-    belongs_to :product_category
+class Product < ApplicationRecord
+  has_many :reviews
+  has_one_attached :thumbnail
+
+  belongs_to :product_category
 end

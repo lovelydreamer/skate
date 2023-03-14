@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -25,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem "execjs", "2.8.1"
+gem 'execjs', '2.8.1'
 
 gem 'bootstrap', '~> 5.2.1'
 gem 'jquery-rails'
@@ -42,7 +44,7 @@ gem 'net-smtp'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -52,12 +54,12 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem 'pry'
+  gem 'spring'
 end
 
 group :test do
-  gem 'database_cleaner'
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'webdrivers', require: false
 end
