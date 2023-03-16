@@ -29,9 +29,17 @@ We utilize a bind-mount to ensure that the source code can be easily modified wi
 ## Troubleshooting
 If things don't work, try the following:
 
-Clone Repo: forced-request/22-skate-owasp
+```
+Clone Repo: git@github.com:forced-request/23-skate-roc.git
 docker build . -t skate
 docker run -d -p 3000:3000 --mount type=bind,source=`pwd`,target=/application -t skate
 docker exec -it skate rails db:migrate
 Docker exec –it skate npm i -g yarn
 Docker exec –it skate rails webpacker:install
+```
+
+### Windows Users
+
+Problems generally realted to bind-mounts. Try:
+
+`docker run --name skate -d -p 3000:3000 --mount type=bind,source=”%cd%”,target=/application -t skate`

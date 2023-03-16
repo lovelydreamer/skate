@@ -2000,3 +2000,262 @@ Processing by SearchController#index as HTML
 Completed 200 OK in 66ms (Views: 48.3ms | ActiveRecord: 11.2ms | Allocations: 13131)
 
 
+Started GET "/search?keyword=bl&commit=Search" for 172.17.0.1 at 2023-03-14 13:31:59 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SearchController#index as HTML
+  Parameters: {"keyword"=>"bl", "commit"=>"Search"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (email LIKE '%bl%')[0m
+  ↳ app/controllers/search_controller.rb:8:in `index'
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name LIKE '%bl%' OR description LIKE '%bl%')[0m
+  ↳ app/controllers/search_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (name LIKE '%bl%' OR description LIKE '%bl%')[0m
+  ↳ app/views/shared/_products_table.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (2.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  [1m[36mProductCategory Load (1.3ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:24
+  Rendered shared/_products_table.html.erb (Duration: 458.4ms | Allocations: 24492)
+  Rendered search/index.html.erb within layouts/application (Duration: 471.7ms | Allocations: 25169)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.4ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 581.1ms | Allocations: 42068)
+Completed 200 OK in 745ms (Views: 588.5ms | ActiveRecord: 35.2ms | Allocations: 54851)
+
+
+Started GET "/api/aws/report.html" for 172.17.0.1 at 2023-03-15 23:36:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/aws/report.html"):
+  
+Started GET "/" for 172.17.0.1 at 2023-03-15 23:36:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 176.2ms | Allocations: 6209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.8ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (1.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 457.0ms | Allocations: 37924)
+Completed 200 OK in 497ms (Views: 440.0ms | ActiveRecord: 22.1ms | Allocations: 42396)
+
+
+Started GET "/products" for 172.17.0.1 at 2023-03-15 23:36:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/shared/_products_table.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  [1m[36mProductCategory Load (2.0ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  [1m[36mCACHE ProductCategory Load (0.0ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  [1m[36mProductCategory Load (1.7ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:24
+  Rendered shared/_products_table.html.erb (Duration: 158.8ms | Allocations: 20507)
+  Rendered products/index.html.erb within layouts/application (Duration: 162.4ms | Allocations: 20829)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.6ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 220.3ms | Allocations: 27399)
+Completed 200 OK in 241ms (Views: 201.0ms | ActiveRecord: 22.2ms | Allocations: 30712)
+
+
+Started GET "/product_categories/1" for 172.17.0.1 at 2023-03-15 23:36:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductCategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProductCategory Load (1.5ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/product_categories_controller.rb:8:in `show'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:19:in `actor_for_auditing'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."product_category_id" = ?[0m  [["product_category_id", 1]]
+  ↳ app/helpers/application_helper.rb:14:in `target_for_auditing'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  [1m[36mAuditLogEntry Create (11.6ms)[0m  [1m[32mINSERT INTO "audit_log_entries" ("event", "target", "ip_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["event", "ProductCategory#show"], ["target", "[{\"id\":3,\"name\":\"Tensor Trucks\",\"description\":\"These things rip\",\"price\":32.99,\"cost\":18.75,\"product_category_id\":1,\"created_at\":\"2023-03-14T00:27:38.937Z\",\"updated_at\":\"2023-03-14T00:27:38.937Z\"}]"], ["ip_address", "172.17.0.1"], ["created_at", "2023-03-15 23:36:28.804415"], ["updated_at", "2023-03-15 23:36:28.804415"]]
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  Rendering layout layouts/application.html.erb
+  Rendering product_categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (11.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."product_category_id" = ?[0m  [["product_category_id", 1]]
+  ↳ app/views/shared/_products_table.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  Rendered shared/_products_table.html.erb (Duration: 26.1ms | Allocations: 3527)
+  Rendered product_categories/show.html.erb within layouts/application (Duration: 29.4ms | Allocations: 3733)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.6ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 72.4ms | Allocations: 9500)
+Completed 200 OK in 181ms (Views: 58.8ms | ActiveRecord: 45.4ms | Allocations: 24312)
+
+
+Started GET "/brand" for 172.17.0.1 at 2023-03-15 23:36:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BrandController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering brand/index.html.erb within layouts/application
+  Rendered brand/index.html.erb within layouts/application (Duration: 57.6ms | Allocations: 3015)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.1ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 90.6ms | Allocations: 9890)
+Completed 200 OK in 94ms (Views: 90.0ms | ActiveRecord: 3.5ms | Allocations: 11255)
+
+
+Started GET "/product_categories/2" for 172.17.0.1 at 2023-03-15 23:36:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ProductCategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProductCategory Load (1.5ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/product_categories_controller.rb:8:in `show'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:19:in `actor_for_auditing'
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."product_category_id" = ?[0m  [["product_category_id", 2]]
+  ↳ app/helpers/application_helper.rb:14:in `target_for_auditing'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  [1m[36mAuditLogEntry Create (10.1ms)[0m  [1m[32mINSERT INTO "audit_log_entries" ("event", "target", "ip_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["event", "ProductCategory#show"], ["target", "[{\"id\":1,\"name\":\"Element board\",\"description\":\"The one that Bam rides\",\"price\":59.99,\"cost\":32.75,\"product_category_id\":2,\"created_at\":\"2023-03-14T00:27:38.871Z\",\"updated_at\":\"2023-03-14T00:27:38.871Z\"},{\"id\":2,\"name\":\"Blind board\",\"description\":\"Reaper\",\"price\":53.99,\"cost\":35.75,\"product_category_id\":2,\"created_at\":\"2023-03-14T00:27:38.901Z\",\"updated_at\":\"2023-03-14T00:27:38.901Z\"}]"], ["ip_address", "172.17.0.1"], ["created_at", "2023-03-15 23:36:32.890841"], ["updated_at", "2023-03-15 23:36:32.890841"]]
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/audit_log_entry.rb:5:in `event'
+  Rendering layout layouts/application.html.erb
+  Rendering product_categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."product_category_id" = ?[0m  [["product_category_id", 2]]
+  ↳ app/views/shared/_products_table.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Product"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/shared/_products_table.html.erb:17
+  Rendered shared/_products_table.html.erb (Duration: 21.3ms | Allocations: 5058)
+  Rendered product_categories/show.html.erb within layouts/application (Duration: 22.2ms | Allocations: 5130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (1.3ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 54.3ms | Allocations: 10736)
+Completed 200 OK in 104ms (Views: 49.2ms | ActiveRecord: 29.8ms | Allocations: 17877)
+
+
+Started GET "/" for 172.17.0.1 at 2023-03-15 23:36:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 559)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (2.4ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (2.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 6995)
+Completed 200 OK in 63ms (Views: 54.7ms | ActiveRecord: 7.0ms | Allocations: 7497)
+
+
+Started GET "/" for ::1 at 2023-03-16 15:05:10 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1340.1ms | Allocations: 19569)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (0.5ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 1409.8ms | Allocations: 47050)
+Completed 200 OK in 1440ms (Views: 1415.1ms | ActiveRecord: 2.8ms | Allocations: 51993)
+
+
+Started GET "/" for ::1 at 2023-03-16 15:07:07 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 814)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (0.1ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8314)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms | Allocations: 9836)
+
+
+Started GET "/" for ::1 at 2023-03-16 15:07:15 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 814)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mProductCategory Load (0.1ms)[0m  [1m[34mSELECT "product_categories".* FROM "product_categories"[0m
+  ↳ app/views/layouts/application.html.erb:32
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:46
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  [1m[36mCACHE Cart Load (0.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = ? ORDER BY "carts"."id" DESC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:24:in `cart_for_user'
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 8307)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.3ms | Allocations: 9786)
+
+
