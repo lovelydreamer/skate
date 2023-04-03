@@ -9,5 +9,6 @@
 		"dockerfile": "../Dockerfile"
 	},
 
-	"forwardPorts": [3000]
+	"forwardPorts": [3000],
+	"postCreateCommand": "script/setup_database.sh && rails server -b 0.0.0.0"
 }
