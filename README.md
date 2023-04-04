@@ -2,8 +2,25 @@
 
 This app is designed to be a training tool for @forced-request's Defense-in-Depth engineering workshop.
 
+The application has been designed to work with [GitHub Codespaces](https://docs.github.com/en/codespaces/overview), or locally via a Devcontainer file. In either case, local usage of Visual Studio code is recommended. Please utilize the following extensions:
+
+- https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+- https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces
+
 # Running the App
-Utilizing Docker is the recommended approach, to help minimize runtime dependency concerns.
+
+To run the application, execute the following in Codespaces / DevContainer:
+
+```
+script/server
+```
+
+# Docker Instructions
+
+<details>
+
+<summary>Click here to view legacy instructions</summary>
+
 
 ## Building the basic image
 
@@ -43,3 +60,5 @@ Docker exec –it skate rails webpacker:install
 Problems generally realted to bind-mounts. Try:
 
 `docker run --name skate -d -p 3000:3000 --mount type=bind,source=”%cd%”,target=/application -t skate`
+
+</details>
