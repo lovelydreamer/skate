@@ -5,7 +5,11 @@ class ProductSubscription < ApplicationRecord
     belongs_to :product
     belongs_to :user
 
-    def notify
+    def signature
+        Digest::SHA2.hexdigest self.url
+    end
+
+    def notify!
         unless valid_url?
             raise "InvalidURL"
         end
@@ -15,6 +19,7 @@ class ProductSubscription < ApplicationRecord
 
         return res.body
     end
+    
 
     private
     def valid_url?

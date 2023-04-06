@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :product_categories, only: [:index, :show]
+  resources :product_subscriptions, only: [:create, :show]
   resources :search, only: [:index]
   resources :reviews, only: [:show, :create]
 end
