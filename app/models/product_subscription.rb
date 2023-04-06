@@ -3,10 +3,14 @@ require 'net/http'
 
 class ProductSubscription < ApplicationRecord
     belongs_to :product
-    belongs_to :user
+    belongs_to :user, optional: true
 
     def signature
         Digest::SHA2.hexdigest self.url
+    end
+
+    def validate!(provided_signature)
+        raise "Unauthorized" unless provided_signature == self.signature
     end
 
     def notify!
