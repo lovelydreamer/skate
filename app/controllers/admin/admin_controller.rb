@@ -5,11 +5,12 @@ class Admin::AdminController < ApplicationController
 
     private
     def verify_admin
-        # TODO: We need to do actual RBAC
-        # TODO: Maybe we should log the entire HTTP request path?
-        puts "Admin verified"
+        secure_token = request.headers["skate-admin-token"]
+        raise "No admin token provided" if secure_token.nil?
 
-        # TODO: Auth should be audited, but this should _not_ fulfill our audited request. I.e., the underlying method MUST perform the auditing
+        raise "Unauthorized" unless Digest::SHA2.hexdigest(secure_token) == "6a934b45144e3758911efa29ed68fb2d420fa7bd568739cdcda9251fa9609b1e"
+        
+        # Auth should be audited, but this should _not_ fulfill our audited request. I.e., the underlying method MUST perform the auditing
         AuditLogEntry.event(
             event: "admin_auth",
             actor_id: 1,
