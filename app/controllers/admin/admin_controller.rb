@@ -1,7 +1,6 @@
 class Admin::AdminController < ApplicationController
+    prepend_before_action :admin_controller_hit
     before_action :verify_admin
-
-    # TODO: Every admin action should be audited
 
     private
     def verify_admin
@@ -18,5 +17,9 @@ class Admin::AdminController < ApplicationController
             ip_address: "127.0.0.1",
             satisfy_requirement: false
         )
+    end
+    
+    def admin_controller_hit
+        Rails.cache.write('admin_request_processed', true, raw: true)
     end
 end
