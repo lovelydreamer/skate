@@ -62,3 +62,7 @@ Problems generally realted to bind-mounts. Try:
 `docker run --name skate -d -p 3000:3000 --mount type=bind,source=”%cd%”,target=/application -t skate`
 
 </details>
+
+# Useful Links
+- DOMPurify Basics: https://jsfiddle.net/bwLokh75/17/
+- DOMPurify Event Handlers: https://jsfiddle.net/nvfskL3w/
