@@ -23,9 +23,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_controller
-        
         if request.env['PATH_INFO'].match(/\A\/admin/)
-            # If the user has not hit the admin controller there's a gap in our inheritance logic
             unless Rails.cache.read('admin_request_processed', raw: true)
                 raise "Admin Request didn't flow through admin controllers"
             end

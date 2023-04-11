@@ -35,4 +35,8 @@ module ApplicationHelper
         end
         cart
     end
+
+    def require_access!(user = current_user, resource = nil)
+        return false
+    end
 end

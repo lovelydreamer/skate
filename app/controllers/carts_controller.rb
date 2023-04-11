@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
     before_action :set_cart_for_user, only: [:show, :edit, :update, :destroy]
     def index
-        # INSECURE: Used for debugging
+        require_access!
         @carts = Cart.all
         render json: @carts
     end
