@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.hosts << /.*\.preview\.app\.github\.dev/ # To support codespaces, open this up wideeeee
+  config.hosts << /.*\.github\.dev/ # To support codespaces, open this up wideeeee
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
